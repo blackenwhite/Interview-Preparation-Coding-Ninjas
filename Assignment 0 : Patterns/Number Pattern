@@ -1,0 +1,36 @@
+/*Print the following pattern
+Pattern for N = 4
+       1
+     23
+   345
+ 4567
+Input Format :
+N (Total no. of rows)
+Output Format :
+Pattern in N lines
+Sample Input :
+5
+Sample Output :
+          1
+        23
+      345
+    4567
+  56789*/
+-----------------------------------Solution-----------------------------------
+
+python 3
+n=int(input())
+line_num=1
+while line_num<=n:
+    spaces=0
+    while spaces<n-line_num:
+        print(" ",end="")
+        spaces+=1
+    count=0
+    j=line_num
+    while count<line_num:
+        print(j,end="")
+        j+=1
+        count+=1
+    print()
+    line_num+=1
