@@ -1,0 +1,27 @@
+Print the following pattern for n number of rows.
+For eg. N = 5
+
+1                1
+12            21
+123        321
+1234    4321
+1234554321
+Sample Input 1 :
+4
+Sample Output 1 :
+1            1
+12        21
+123    321
+12344321
+
+----------------------------Solution-----------------------------------
+
+n=int(input())
+for line_num in range(1,n+1):
+    for j in range(1,line_num+1):
+        print(j,end="")
+    for j in range(2*(n-line_num)):
+        print(" ",end="")
+    for j in range(line_num,0,-1):
+        print(j,end="")
+    print()
