@@ -1,0 +1,58 @@
+Print the following pattern
+Pattern for N = 4
+4 4 4 4 4 4 4 
+4 3 3 3 3 3 4 
+4 3 2 2 2 3 4 
+4 3 2 1 2 3 4 
+4 3 2 2 2 3 4 
+4 3 3 3 3 3 4 
+4 4 4 4 4 4 4 
+Input Format :
+N (Total no. of rows)
+Output Format :
+Pattern in N lines
+Sample Input 1 :
+5
+Sample Output 1 :
+5 5 5 5 5 5 5 5 5 
+5 4 4 4 4 4 4 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 2 1 2 3 4 5 
+5 4 3 2 2 2 3 4 5 
+5 4 3 3 3 3 3 4 5 
+5 4 4 4 4 4 4 4 5 
+5 5 5 5 5 5 5 5 5 
+
+
+--------------------------Solution-----------------
+def fill_mat(num,mat,i,j):
+    k=num*2-1
+    # fill the top row
+    for g in range(k):
+        mat[i][j+g]=num
+    # fill the left col
+    for g in range(k):
+        mat[i+g][j]=num
+    
+    #fill the bottom row
+    for g in range(k):
+        mat[i+k-1][j+g]=num
+    for g in range(k):
+        mat[i+g][j+k-1]=num
+        
+        
+n=int(input())
+length=n*2-1
+mat=[[0 for i in range(length)]for j in range(length)]
+num=n
+
+while num>=1:
+    fill_mat(num,mat,n-num,n-num)
+    
+    num=num-1
+
+for i in range(length):
+    for j in range(length):
+        print(mat[i][j],end=" ")
+    print()
