@@ -1,0 +1,45 @@
+Given an N*N integer square matrix, rotate it by 90 degrees in anti-clockwise direction.
+Try doing it without any extra space.
+Note : You just need to change in the given input itself. No need to return or print anything.
+Input format :
+Line 1 : Integers N
+Next N lines : N integers, elements of one row (separated by space)
+Output Format :
+Updated matrix
+Constraints :
+1 <= N <= 1000
+Sample Input :
+3
+1 2 3
+4 5 6
+7 8 9
+Sample Output :
+3  6  9 
+2  5  8 
+1  4  7
+
+----------------Solution--------------------nabajyoti
+void rotate(int **input, int n){
+    
+    // transpose the matrix
+    for (int i=0;i<n;i++){
+        for (int j=i;j<n;j++){
+            int temp=input[i][j];
+            input[i][j]=input[j][i];
+            input[j][i]=temp;
+        }
+    }
+    // turn the rows upside down
+    int i=0,j=n-1;
+    int k;
+    while (i<j){
+        for(k=0;k<n;k++){
+            int temp=input[i][k];
+            input[i][k]=input[j][k];
+            input[j][k]=temp;
+        }
+        i++;
+        j--;
+    }
+    
+}
