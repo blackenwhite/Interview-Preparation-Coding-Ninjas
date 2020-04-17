@@ -1,0 +1,15 @@
+int main(){
+  int a[10];
+  cout<<a<<endl;
+  cout<<&a[0]<<endl;// both prints the same value
+  // we can  almost treat array as pointer. thode differences hai, but most cases me pointer ke jaise use kar  sakte hai
+  
+  a[0]=5;
+  cout<<*a<<endl; // this will print the zeroth element
+  cout<<*(a+1)<<endl;// this will print the value of the first index
+
+  cout<<a<<endl;
+  cout<<&a<<endl; // both will print the same value
+  
+
+}
