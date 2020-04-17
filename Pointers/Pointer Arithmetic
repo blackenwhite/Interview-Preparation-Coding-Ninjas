@@ -1,0 +1,12 @@
+int main(){
+  int i=10;
+  int* p=&i;
+  cout<<p<<endl; // prints the address of p
+  p=p+1;
+  cout<<p<<endl; // prints the address four bits after the previous value
+  
+  // similarly p-- will go to the previous integer if it is an array. MOSTLY IT IS USED IN CASE OF ARRAYS.
+  
+
+
+}
