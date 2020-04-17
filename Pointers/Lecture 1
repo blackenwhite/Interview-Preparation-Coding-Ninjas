@@ -1,0 +1,29 @@
+// Pointers are variables which stores address of other variables.
+#include <iostream>
+using namespace std;
+int main(){
+  int i=10;
+  cout<<&i<<endl;
+  
+  // we can initialise a pointer in the following way
+  int* p=&i;n  // int pointer(int*) means we made a pointer variable 
+  cout<<p<<endl;
+  
+  // Now let us see how much memory is allocated for p
+  cout<<sizeof(p)<<endl;
+  
+  
+  // Now we can access the value stored at the address by using deference operator
+  cout<<*p<<endl;// * when used in this way becomes the dereference operator
+  
+  
+  i++;
+  cout<<i<<endl;
+  cout<<*p<<endl; // Both will give 11 as the result. why?
+                  // because p is just storing the address of i.
+  
+  
+  
+  
+  return 0;
+}
