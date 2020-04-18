@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int i=65;
+  char c=i; // this is called implicit typecasting
+  
+  cout<<c<<endl; // this will print A
+  
+  // Now
+  int* p=&i;
+  char* pc=p; // No,!! this wont work;
+  
+  // But we can do something else
+  char* pc=(char*)p; // this is called explicit typecasting
+  
+  
+}
