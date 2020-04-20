@@ -1,0 +1,54 @@
+Given an integer n, using phone keypad find out all the possible strings that can be made using digits of input n.
+Return empty string for numbers 0 and 1.
+Note : The order of strings are not important.
+Input Format :
+Integer n
+Output Format :
+All possible strings in different lines
+Constraints :
+1 <= n <= 10^6
+Sample Input:
+23
+Sample Output:
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf
+
+------------Python 3.5----------------------
+def keypadCodes(num,output):
+    #base case
+    if(num==0):
+        output[0]=""
+        return 1
+    rem=num%10
+    count=keypadCodes(num//10,output)
+    #copying the previous things in the array
+    string_for_rem=hashtable[rem]
+    length=len(string_for_rem)
+    if(length==0):
+        return 1
+    for j in range(1,length):
+        for i in range(count):
+            output[j*count+i]=output[i]
+    
+    #now add the characters in the end of the strings
+    for j in range(length):
+        for i in range(count):
+            output[j*count+i]+=string_for_rem[j]
+    
+    return count*length## Print output as specified in the question.
+
+
+hashtable=["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]
+output=[None]*10000
+num=int(input().strip())
+count=keypadCodes(num,output)
+for i in range(count):
+    print(output[i])
+    
