@@ -1,0 +1,53 @@
+
+C++ code
+#include <iostream>
+using namespace std;
+
+int subs(string input, string output[]) {
+	if (input.empty()) {
+		output[0] = "";
+		return 1;
+	}
+
+	string smallString = input.substr(1);
+	int smallOutputSize = subs(smallString, output);
+	for (int i = 0; i < smallOutputSize; i++) {
+		output[i + smallOutputSize] = input[0] + output[i];
+	}
+	return 2 * smallOutputSize;
+}
+
+int main() {
+	string input;
+	cin >> input;
+	string* output = new string[1000];
+	int count = subs(input, output);
+	for (int i = 0; i < count; i++) {
+		cout << output[i] << endl;
+	}
+}
+
+-----------------------------
+Python 3.5
+
+def subs(inp,output):# inp is the input string and output is the final output array
+    
+    # base case
+    if(len(inp)==0):
+        output[0]=""
+        return 1
+    
+    smallString=inp[1:]
+    smallOutput=subs(smallString,output)
+    for i in range(smallOutput):
+        output[i+smallOutput]=inp[0]+output[i]
+    return 2*smallOutput
+    
+    
+string=input().strip()
+import math
+sizeofoutput=math.pow(2,len(string))
+output=[None]*int(sizeofoutput)
+count=subs(string,output)
+for i in range(count):
+    print(output[i])   # the first one is the empty , so you cant see it
