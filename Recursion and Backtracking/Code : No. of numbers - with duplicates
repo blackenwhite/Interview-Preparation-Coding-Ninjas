@@ -1,0 +1,59 @@
+Given a number n, find number of numbers that are greater than n using the same set of digits as n. n might have duplicate digits.
+Input Format :
+Integer n
+Output Format :
+Count of greater numbers
+Sample Input :
+122
+Sample Output :
+2
+
+#include <bits/stdc++.h>
+using namespace std;
+
+long foo(deque<long>&input,int n,vector<long>&fact,vector<long>&freq,int start){
+    if(n==0||n==1) return 0;
+    long ans=0;
+    long denom=1;
+    for(int i=1;i<=9;i++){
+        denom*=fact[freq[i]];
+    }
+    for (int i=input[start]+1;i<10;i++){
+        if(freq[i]>0){
+            ans+=(fact[n-1]* freq[i])/denom;
+        }
+    }
+    freq[input[start]]--;
+    ans+=foo(input,n-1,fact,freq,start+1);
+    return ans;
+}
+
+long numberOfNumbersWithDuplicates(long num){
+	deque<long> input;
+    vector<long> freq(10);
+    vector<long>fact;
+    fact.push_back(1);
+    fact.push_back(1);
+    
+    int n=0;
+    while(num>0){
+        long d=num%10;
+        int i=fact.size();
+        freq[d]++;
+        n++;
+        fact.push_back(fact[i-1]*i);
+        input.push_front(d);
+        num/=10;
+    }
+    return foo(input,n,fact,freq,0);
+    
+    
+
+}
+
+
+int main() {
+    long n;
+    cin >> n;
+    cout << numberOfNumbersWithDuplicates(n) << endl;
+}
