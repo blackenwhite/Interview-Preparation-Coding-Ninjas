@@ -1,0 +1,161 @@
+Given a 9*9 sudoku board, in which some entries are filled and others are 0 (0 indicates that the cell is empty), you need to find out whether the Sudoku puzzle can be solved or not i.e. return true or false.
+Input Format :
+9 Lines where ith line contains ith row elements separated by space
+Output Format :
+ true or false
+Sample Input :
+9 0 0 0 2 0 7 5 0 
+6 0 0 0 5 0 0 4 0 
+0 2 0 4 0 0 0 1 0 
+2 0 8 0 0 0 0 0 0 
+0 7 0 5 0 9 0 6 0 
+0 0 0 0 0 0 4 0 1 
+0 1 0 0 0 5 0 8 0 
+0 9 0 0 7 0 0 0 4 
+0 8 2 0 4 0 0 0 6
+Sample Output :
+true
+
+
+-----------------Solution---------------
+Python
+def find_options(board,i,j):
+    s=set()
+    # add the column elements
+    for x in range(9):
+        if board[x][j]!=0:
+            s.add(board[x][j])
+    
+    #print("elements in column are")
+    #print(s)
+    #add the row elements
+    #print("elements in row are:" )
+    
+    
+    for x in range(9):
+        if board[i][x]!=0:
+            s.add(board[i][x])
+            #print(board[i][x])
+    
+    
+    #add the box elements
+    #print("elements present in its box are:")
+    
+    x_group=i//3
+    y_group=j//3
+    for x in range(3*x_group,3*(x_group+1)):
+        for y in range(3*y_group,3*(y_group+1)):
+            if board[x][y]!=0:
+                s.add(board[x][y])
+                #print(board[x][y])
+    ans=set()
+    for i in range(1,10):
+        if i not in s:
+            ans.add(i)
+    return ans
+
+def hasSolutionhelper(board,visited,i,j):
+    if i==8 and j==8 and visited[i][j]==1:
+        return True
+    if(j==8 and i<8):
+        nextj=0
+        nexti=i+1
+    else:
+        nextj=j+1
+        nexti=i
+    
+    if(visited[i][j]==1):
+        return hasSolutionhelper(board,visited,nexti,nextj)
+    
+    visited[i][j]=1
+    s=find_options(board,i,j);
+    if len(s)==0:
+        visited[i][j]=0
+        return False
+    
+    for x in s:
+        board[i][j]=x
+        ok=hasSolutionhelper(board,visited,nexti,nextj)
+        if(ok):
+            return True
+    board[i][j]=0
+    visited[i][j]=0
+    return False
+
+
+def hasSolution(board,visited):
+    h=False;
+    for i in range(9):
+        for j in range(9):
+            if(board[i][j]!=0):
+                h=hasSolutionhelper(board,visited,i,j)
+                break
+        break;
+    '''if(h):
+        for i in range(9):
+            for j in range(9):
+                print(board[i][j],end=" ")
+            print()'''
+    return h
+
+
+board = [[ int(ele) for ele in input().split() ]for i in range(9)]
+visited=[[0 for i in range(9)]for j in range(9)]
+for i in range(9):
+    for j in range(9):
+        if(board[i][j]!=0):
+            visited[i][j]=1
+
+ans = hasSolution(board,visited)
+if ans is True:
+    print('true')
+else:
+    print('false')
+    
+-----------------
+bool check(int board[][9],int row,int col,int val){
+    for (int k=0;k<0;k++){
+        if(board[row][k]==val) return false;
+        if(board[k][col]==val) return false;
+    }
+    int TopRowIndice=row-row%3;
+	int TopColIndice=col-col%3;
+    for(int c=TopRowIndice;c<TopRowIndice+3;c++) {
+        for(int d=TopColIndice;d<TopColIndice+3;d++) {
+            if(board[c][d]==val) { return false; 
+                                 }
+        }
+    }
+    return true;
+}
+
+bool helper(int board[][9],int row,int col){
+    if(row==9){
+        return true;
+    }
+    if(col==9){
+        return helper(board,row+1,0);
+    }
+    if(board[row][col]!=0){
+        return helper(board,row,col+1);
+    }
+    for (int k=1;k<=9;k++){
+        if(check(board,row,col,k)){
+            board[row][col]=k;
+            if(helper(board,row,col+1)) return true;
+        }
+        board[row][col]=0;
+        
+    }
+    return false;
+}
+
+bool sudokuSolver(int board[][9]){
+
+  /* Don't write main().
+   *  Don't read input, it is passed as function argument.
+   *  Don't print output and return output as specified in the question
+  */
+ return helper(board,0,0);
+
+}
