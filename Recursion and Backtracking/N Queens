@@ -1,0 +1,76 @@
+You are given N, and for a given N x N chessboard, find a way to place N queens such that no queen can attack any other queen on the chess board. A queen can be killed when it lies in the same row, or same column, or the same diagonal of any of the other queens. You have to print all such configurations.
+Input Format :
+Line 1 : Integer N
+Output Format :
+One Line for every board configuration. 
+Every line will have N*N board elements printed row wise and are separated by space
+Note : Don't print anything if there isn't any valid configuration.
+Constraints :
+1<=N<=10
+Sample Input 1:
+4
+Sample Output 1 :
+0 1 0 0 0 0 0 1 1 0 0 0 0 0 1 0 
+0 0 1 0 1 0 0 0 0 0 0 1 0 1 0 0 
+
+---------------------Solution------------------
+// nabajyoti majumdar
+bool check(int** mat,int n,int row,int col){
+    // No need to check the rows
+    
+    /// checking the columns
+    for (int i=0;i<n;i++){
+        if(mat[i][col]==1){
+            return false;
+        }
+    }
+    
+    // checking the right  diagonal ; we need to check upwards only
+    int i=row-1,j=col+1;
+    while (i>=0 and j<=n){
+        if(mat[i--][j++]==1) return false;
+    }
+    
+    i=row-1,j=col-1; // checking the upper left diagonal;
+    while(i>=0 and j>=0){
+        if(mat[i--][j--]==1) return false;
+    }
+    
+    return true;
+    
+}
+
+
+void helper(int** mat,int n,int row){
+    if(row==n){
+        // print the bloody matrix
+        for (int i=0;i<n;i++){
+            for (int j=0;j<n;j++)
+                cout<<mat[i][j]<<" ";
+        }
+        cout<<endl;
+        return ;
+    }
+    for(int col=0;col<n;col++){
+        if(check(mat,n,row,col)){
+            mat[row][col]=1;
+            helper(mat,n,row+1);
+            mat[row][col]=0;
+        }
+    }
+    return;
+}
+
+void placeNQueens(int n){
+    int** mat=new int*[n];
+    for (int i=0;i<n;i++){
+        mat[i]=new int[n];
+    }
+    for(int i=0;i<n;i++){
+        for (int j=0;j<n;j++){
+            mat[i][j]=0;
+        }
+    }
+    
+   helper(mat,n,0);
+}
