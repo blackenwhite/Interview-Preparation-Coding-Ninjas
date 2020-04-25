@@ -1,0 +1,46 @@
+Whis and Beerus are playing a new game today . They form a tower of N coins and make a move in alternate turns . Beerus being the God plays first . In one move player can remove 1 or X or Y coins from the tower . The person to make the last move wins the Game . Can you find out who wins the game ?
+Input Format :
+Contains three value N,X,Y as mentioned in the problem statement
+Output Format :
+A string containing the name of the winner like “Whis” or “Beerus” (without quotes)
+Constraints:
+1<=N<=10^6
+2<=X<=Y<=50
+Sample Input :
+ 4 2 3
+Sample Output :
+ Whis
+ --------------Solution--------------
+ // author nabajyoti majumdar
+ string solve(int n, int x, int y)
+{
+	int* dp=new int[n+1];
+    dp[0]=1;
+    dp[1]=0;
+    dp[x]=0;
+    dp[y]=0;
+    int i;
+    for ( i=2;i<=n;i++){
+        
+        if(dp[i-1]==1) {dp[i]=0; continue;}
+        if(i>=x){
+            if(dp[i-x]==1) {dp[i]=0;continue;}
+        }
+        
+        if(i>=y){
+            if(dp[i-y]==1) {dp[i]=0;continue;}
+        }
+        dp[i]=1;
+    }
+    
+    /*for(int i=0;i<=n;i++){
+        cout<<dp[i]<<" ";
+    }
+    cout<<endl;*/
+    
+    if(dp[n]==0){
+        return "Beerus";
+    }else{
+        return "Whis";
+    }
+}
