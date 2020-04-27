@@ -1,0 +1,61 @@
+Given two strings S and T, find and return the length of their smallest super-sequence.
+A shortest super sequence of two strings is defined as the shortest possible string containing both strings as subsequences.
+Note that if the two strings do not have any common characters, then return the sum of lengths of the two strings.
+Input Format:
+Line 1 : A string
+Line 2: Another string
+Output Format:
+Length of the smallest super-sequence of given two strings. 
+Sample Input:
+ab
+ac
+Sample Output:
+3
+Sample Output Explanation:
+Their smallest super-sequence can be "abc" which has length=3.
+------------Solution-----------------------------
+// nabajyoti majumdar
+#include <bits/stdc++.h>
+using namespace std;
+int smallestSuperSequence(char str1[], int len1, char str2[], int len2) { 
+    int m=strlen(str1),n=strlen(str2);
+    int dp[m+1][n+1];
+    memset(dp,0,sizeof(dp));
+    
+    // filling up the rightmost column
+    int k=0;
+    for (int i=m;i>=0;i--){
+       dp[i][n]=k;
+        k++;
+    }
+    k=1;
+    for (int j=n-1;j>=0;j--){
+        dp[m][j]=k;
+        k++;
+    }
+    
+    /*for(int i=0;i<=m;i++){
+        for (int j=0;j<=n;j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
+    }*/
+    
+    for (int i=m-1;i>=0;i--){
+        for (int j=n-1;j>=0;j--){
+            if(str1[i]==str2[j]){
+                dp[i][j]=dp[i+1][j+1]+1;
+            }else{
+                dp[i][j]=1+min(dp[i+1][j],dp[i][j+1]);
+            }
+        }
+    }
+    /*for(int i=0;i<=m;i++){
+        for (int j=0;j<=n;j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
+    }*/
+    return dp[0][0];
+    
+}
