@@ -1,0 +1,43 @@
+Check if a given linked list is palindrome or not. Return true or false.
+Indexing starts from 0.
+Input format : Linked list elements (separated by space and terminated by -1)
+
+Sample Input 1 :
+9 2 3 3 2 9 -1
+Sample Output 1 :
+true
+Sample Input 2 :
+0 2 3 2 5 -1
+Sample Output 2 :
+false
+
+------------------------Solution---------------------
+//nabajyoti majumdar
+#include <bits/stdc++.h>
+using namespace std;
+bool check_palindrome(node* head)
+{
+    stack<int> s;
+    node* temp=head;
+    while(temp!=NULL){
+        s.push(temp->data);
+        temp=temp->next;
+    }
+    bool yes=true;
+    int x;
+    temp=head;
+    
+    while(!s.empty()){
+        x=s.top();
+        s.pop();
+        if(temp->data!=x){
+            yes=false;
+            return yes;
+        }
+        temp=temp->next;
+        
+    }
+    return true;
+    
+    
+}
