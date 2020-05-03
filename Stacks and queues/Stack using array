@@ -1,0 +1,47 @@
+class Stack{
+  int* data;
+  int nextIndex;
+  int capacity;
+
+public:
+  Stack(int total){
+    data=new int[total];
+    nextIndex=0;
+    capacity=total;
+  }
+
+  //utility function to return the size of the array
+  int size(){
+    return nextIndex;
+  }
+
+  bool isEmpty(){
+    return nextIndex==0;
+  }
+
+  void push(int ele){
+    if(nextIndex>=capacity){
+      cout<<"Stack is full! :("<<endl;
+      return;
+    }
+    data[nextIndex++]=ele;
+    return;
+  }
+
+  int pop(){
+    if(nextIndex>=0){
+    return data[--nextIndex];
+  }else{
+    cout<<"Stack is empty"<<endl;
+    return INT_MIN;
+  }
+  }
+
+  int top(){
+    if(nextIndex>=0){
+      return data[nextIndex-1];
+    }
+    cout<<"Stack is Empty"<<endl;
+    return INT_MIN;
+  }
+};
