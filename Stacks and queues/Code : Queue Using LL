@@ -1,0 +1,54 @@
+template<typename T>
+class Queue {
+    Node<T>* fron;
+    Node<T>* rear;
+    int size;
+    
+    
+    public :
+    
+    
+    Queue() {
+        size=0;
+        fron=new Node<T>(0);
+        rear=fron;
+    }
+    
+    void enqueue(T data) {
+        if(size==0){
+            fron->data=data;
+            rear->data=data;
+            size++;
+            return;
+        }
+        Node<T>* temp=new Node<T>(data);
+        rear->next=temp;
+        rear=temp;
+        size++;
+    }
+    
+    int getSize() {
+        return size;
+    }
+    
+    bool isEmpty() {
+        return size==0;
+    }
+    
+    T dequeue() {
+        if(isEmpty()) return 0;
+        T ans=fron->data;
+        Node<T>* temp=fron->next;
+        fron->next=NULL;
+        fron=temp;
+        size--;
+        return ans;
+    }
+    
+    T front()  {
+        // Return 0 if queue is empty
+        if(size==0)
+            return 0;
+        return fron->data;
+    }
+};
