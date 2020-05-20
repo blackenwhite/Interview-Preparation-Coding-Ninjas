@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+vector<int> adj[100001]; 
+int heightof[100001]; 
+void dfs(int at,int height)
+{
+    vector<int>::iterator it;
+    heightof[at] = height; 
+    it = adj[at].begin(); 
+    while(it!=adj[at].end())
+    { dfs((*it),height+1); 
+     it++; 
+    } 
+    return;
+}
+
+
+int main() {
+    /* Write Your Code Here
+     * You have to take input and print the output yourself
+     */
+    //This question can be solved using either Depth First Search or Breadth First Search.
+    //First assign height (i.e. distance from the root node) to each node using DFS or BFS. 
+    //The height of the ith node is equal to the number of superiors of the ith soldier. So, the number of handshakes for the ith soldier = height of the ith node.
+    //Therefore, the number_of_handshakes = sum of heights of all nodes 
+    //As number_of_handshakes+number_of_fistbumps=(n*(n-1))/2, we have
+    //number_of_fistbumps=(n(n-1))/2 - number_of_handshakes* 
+    //dfs has been performed in this case
+ 
+    int t;
+    cin>>t;
+    while(t--)
+    { 
+        int n,i,root,par; 
+        cin>>n; i = 1; 
+ 
+        while(i<=n) 
+        {
+            adj[i].clear(); 
+            i++; 
+        } 
+        i = 1;
+        while(i<=n) 
+        {
+            cin>>par; 
+            if(par == 0)
+            { root = i; 
+            } 
+            else 
+            { 
+                adj[par].push_back(i); 
+            }
+            i++;
+ 
+        } 
+        dfs(root,0); 
+        i = 1; 
+        long long sumofheights = 0,total = (long long)n*(n-1);
+        total/=2;
+        while(i<=n) 
+        {
+            sumofheights += (long long)heightof[i]; 
+            i++; 
+        } 
+        cout<<sumofheights<<" "<<total-sumofheights<<endl; 
+    }
+	return 0;
+}
+
+
