@@ -1,0 +1,42 @@
+It is festive time of the year. And Vidit and Parikh loves this festive season, as they get to go to Mela.
+Mela brings home their favourite game: "Bursting Balloons". The player has to stand at the leftmost corner of the platform. And there are N balloons, lined up from left to right. The aim of the player is to destroy all these balloons. Now, a balloon can only be destroyed if player shoots its head. So, to do the needful, he/ she shoots an arrow from the left to the right side of the platform, from an arbitrary height he/she chooses. The arrow moves from left to right, at a chosen height H until it finds a balloon. The moment when an arrow touches a balloon, the balloon gets destroyed and disappears and the arrow continues its way from left to right at a height decreased by 1. Therefore, if the arrow was moving at height H, after destroying the balloon it travels on height H-1. The player wins this game, if he destroys all the balloons in minimum arrows.
+Vidit challenges Parikh to play this game. You have to tell minimum arrows used by Parikh to win the game.
+Input format
+The first line of input contains the integer N (1 ≤ N ≤ 1 000 000).
+The second line of input contains an array of N integers Hi.
+Each integer Hi (1 ≤ Hi ≤ 1 000 000) is the height of the ith balloon, respectively from left to right.
+Constraints:
+Time Limit: 2 seconds
+Output format
+The first and only line of output must contain the minimal number of times Parikh needs to shoot an arrow so that all balloons are destroyed. 
+Sample Test Cases
+Sample Input 1:
+5
+2 1 5 4 3
+Sample Output 1:
+2
+Explanation: Parikh needs to shoots the arrow at height 5 - which destroys [5, 4, 3], and shoots an arrow at height 2 - which destroys [2, 1].
+-------------------------Solution--------------------
+#include<bits/stdc++.h>
+using namespace std;
+#define M 1000005
+int* vec=new int[M]();
+int main() {
+	int n;
+    cin>>n;
+    
+    int count=0;
+    int num;
+    for (int i=0;i<n;i++){
+       cin>>num;
+        if(vec[num+1]>0){
+            vec[num]+=1;
+            vec[num+1]--;
+        }else{
+            vec[num]++;
+            count++;
+        }
+    }
+	// Write your code here
+    cout<<count<<endl;
+}
