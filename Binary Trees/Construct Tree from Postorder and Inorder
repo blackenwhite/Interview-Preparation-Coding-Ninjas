@@ -1,0 +1,40 @@
+ Given Postorder and Inorder traversal of a binary tree, create the binary tree associated with the traversals.You just need to construct the tree and return the root.
+Note: Assume binary tree contains only unique elements.
+Input format :
+
+Line 1 : n (Total number of nodes in binary tree)
+
+Line 2 : Post order traversal
+
+Line 3 : Inorder Traversal
+
+Output Format :
+
+Elements are printed level wise, each level in new line (separated by space).
+
+Sample Input :
+8
+8 4 5 2 6 7 3 1
+4 8 2 5 1 6 3 7
+Sample Output :
+1 
+2 3 
+4 5 6 7 
+8
+--------------------------Solution-------------------
+
+ 
+ BinaryTreeNode<int> *dfs(int *inorder, int ileft, int iright, int* postorder, int pleft, int pright) {
+        if(ileft > iright || pleft > iright) return NULL;
+        int i = ileft;
+        for(; i < iright; i++) if(inorder[i] == postorder[pright]) break;
+        BinaryTreeNode<int> *root = new BinaryTreeNode<int>(postorder[pright]);
+        root->left = dfs(inorder, ileft, i - 1, postorder, pleft, pleft + i - ileft - 1);
+        root->right = dfs(inorder, i + 1, iright, postorder, pleft + i - ileft, pright - 1);
+        return root;
+    }
+
+BinaryTreeNode<int>* getTreeFromPostorderAndInorder(int *postorder, int postLength, int *inorder, int inLength) {
+     return dfs(inorder, 0, inLength - 1, postorder, 0, postLength - 1);
+
+}
