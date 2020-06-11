@@ -1,0 +1,52 @@
+A. New Year Table
+time limit per test2 seconds
+memory limit per test256 megabytes
+inputstandard input
+outputstandard output
+Gerald is setting the New Year table. The table has the form of a circle; its radius equals R. Gerald invited many guests and is concerned whether the table has enough space for plates for all those guests. Consider all plates to be round and have the same radii that equal r. Each plate must be completely inside the table and must touch the edge of the table. Of course, the plates must not intersect, but they can touch each other. Help Gerald determine whether the table is large enough for n plates.
+
+Input
+The first line contains three integers n, R and r (1 ≤ n ≤ 100, 1 ≤ r, R ≤ 1000) — the number of plates, the radius of the table and the plates' radius.
+
+Output
+Print "YES" (without the quotes) if it is possible to place n plates on the table by the rules given above. If it is impossible, print "NO".
+
+Remember, that each plate must touch the edge of the table.
+
+Examples
+inputCopy
+4 10 4
+outputCopy
+YES
+inputCopy
+5 10 4
+outputCopy
+NO
+inputCopy
+1 10 10
+outputCopy
+YES
+Note
+The possible arrangement of the plates for the first sample is:
+
+------------------------Solution---------------------/nabajyoti 
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    double R, r;
+    scanf("%d%lf%lf", &n, &R, &r);
+    if (   n == 1 && r <= R
+        || n == 2 && r * 2 <= R
+        || asin(r / (R - r)) * n <= 3.1415927)
+    {
+        printf("YES\n");
+    }
+    else
+    {
+        printf("NO\n");
+    }
+    return 0;
+}
