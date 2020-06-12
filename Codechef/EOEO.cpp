@@ -1,0 +1,64 @@
+The Tom and Jerry Game! Problem Code: EOEO
+Add problem to Todo list
+Submit
+
+ 
+Read problem statements in Hindi, Bengali, Mandarin Chinese, Russian, and Vietnamese as well.
+As usual, Tom and Jerry are fighting. Tom has strength TS and Jerry has strength JS. You are given TS and your task is to find the number of possible values of JS such that Jerry wins the following game.
+
+The game consists of one or more turns. In each turn:
+
+If both TS and JS are even, their values get divided by 2 and the game proceeds with the next turn.
+If both TS and JS are odd, a tie is declared and the game ends.
+If TS is even and JS is odd, Tom wins the game.
+If TS is odd and JS is even, Jerry wins the game.
+Find the number of possible initial values of JS such that 1≤JS≤TS, there is no tie and Jerry wins the game.
+
+Input
+The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+The first and only line of each test case contains a single integer TS.
+Output
+For each test case, print a single line containing one integer ― the number of values of JS such that Jerry wins the game.
+
+Constraints
+1≤T≤105
+1≤TS≤1018
+Subtasks
+Subtask #1 (20 points): T,TS≤100
+Subtask #2 (80 points): original constraints
+
+Example Input
+2
+1
+11
+Example Output
+0
+5
+Explanation
+Example case 1: We must have JS=TS=1, but in this case, the game ends and a tie is declared in the first turn.
+
+Example case 2: If JS∈{2,4,6,8,10}, then JS is even and TS is odd, so Jerry wins the game in the first turn. Any odd value of JS leads to a tie instead.
+
+Author:	3★sahi1422
+Date Added:	8-05-2020
+Time Limit:	1 secs
+Source Limit:	50000 Bytes
+Languages:	ADA, ASM, BASH, BF, C, CAML, CLOJ, CLPS, COB, CPP14, CPP17, CS2, D, ERL, FORT, FS, GO, HASK, ICK, ICON, JAVA, JS, kotlin, LISP clisp, LISP sbcl, LUA, NEM, NICE, NODEJS, PAS fpc, PAS gpc, PERL, PERL6, PHP, PIKE, PRLG, PYP3, PYPY, PYTH, PYTH 3.6, R, RUBY, rust, SCALA, SCM chicken, SCM guile, SCM qobi, SQL, SQLQ, ST, swift, TCL, TEXT, WSPC
+-----------------------------------Solution----------------
+#include <bits/stdc++.h>
+#include <boost/multiprecision/cpp_int.hpp>
+using namespace boost::multiprecision;
+using namespace std;
+
+int main () {
+        int T;
+    cin >> T;
+    while(T--) {
+            int128_t TS;
+        cin >> TS;
+        while(TS % 2 == 0) {
+            TS /= 2;
+        } cout << TS / 2 << "\n";
+    }
+	return 0;
+}
