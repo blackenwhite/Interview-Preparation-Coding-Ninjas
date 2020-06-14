@@ -1,0 +1,85 @@
+B. Most socially-distanced subsequence
+time limit per test1 second
+memory limit per test256 megabytes
+inputstandard input
+outputstandard output
+Given a permutation p of length n, find its subsequence s1, s2, …, sk of length at least 2 such that:
+
+|s1−s2|+|s2−s3|+…+|sk−1−sk| is as big as possible over all subsequences of p with length at least 2.
+Among all such subsequences, choose the one whose length, k, is as small as possible.
+If multiple subsequences satisfy these conditions, you are allowed to find any of them.
+
+A sequence a is a subsequence of an array b if a can be obtained from b by deleting some (possibly, zero or all) elements.
+
+A permutation of length n is an array of length n in which every element from 1 to n occurs exactly once.
+
+Input
+The first line contains an integer t (1≤t≤2⋅104) — the number of test cases. The description of the test cases follows.
+
+The first line of each test case contains an integer n (2≤n≤105) — the length of the permutation p.
+
+The second line of each test case contains n integers p1, p2, …, pn (1≤pi≤n, pi are distinct) — the elements of the permutation p.
+
+The sum of n across the test cases doesn't exceed 105.
+
+Output
+For each test case, the first line should contain the length of the found subsequence, k. The second line should contain s1, s2, …, sk — its elements.
+
+If multiple subsequences satisfy these conditions, you are allowed to find any of them.
+
+Example
+inputCopy
+2
+3
+3 2 1
+4
+1 3 4 2
+outputCopy
+2
+3 1 
+3
+1 4 2 
+Note
+In the first test case, there are 4 subsequences of length at least 2:
+
+[3,2] which gives us |3−2|=1.
+[3,1] which gives us |3−1|=2.
+[2,1] which gives us |2−1|=1.
+[3,2,1] which gives us |3−2|+|2−1|=2.
+So the answer is either [3,1] or [3,2,1]. Since we want the subsequence to be as short as possible, the answer is [3,1].
+
+-----------------------------------Solution-----------------------------------
+#include <bits/stdc++.h>
+using namespace std;
+int p[100005];
+void solve(){
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>p[i];
+	}
+	vector<int> ans;
+	for(int i=0;i<n;i++){
+		if(i==0||i==n-1||((p[i-1]<p[i])!=(p[i]<p[i+1]))) ans.push_back(p[i]);
+	}
+	cout<<ans.size()<<endl;
+	for(int i:ans){
+		cout<<i<<" ";
+	}
+	cout<<endl;
+}
+
+int main(){
+#ifdef LOCAL
+	freopen("in.txt", "r", stdin);
+	freopen("out.txt", "w", stdout);
+#endif
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+ 	int t;
+	cin>>t;
+	while(t--){
+		solve();
+	}
+}
