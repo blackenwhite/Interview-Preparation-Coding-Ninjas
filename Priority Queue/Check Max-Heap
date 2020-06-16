@@ -1,0 +1,36 @@
+Given an array of integers, check whether it represents max-heap or not.
+Return true or false.
+Input Format :
+Line 1 : An integer N i.e. size of the array
+Line 2 : N integers which are elements of the array, separated by spaces
+Output Format :
+true if it represents max-heap and false if it is not a max-heap
+Constraints :
+1 <= N <= 10^5
+1 <= Ai <= 10^5
+---------------------Solution--------------------/nabajyoti majumdar
+bool checkhelper(int* arr,int n,int pa){
+    if(pa>=n){
+        return true;
+    }
+    bool bsdk=true;
+    int l=pa*2+1,r=pa*2+2;
+    if(l<n && arr[l] >arr[pa]){
+        bsdk= false;
+    }
+    if(r<n && arr[r]>arr[pa]){
+        bsdk= false;
+    }
+    if(checkhelper(arr,n,pa*2+1) && checkhelper(arr,n,pa*2+2) && bsdk){
+        return true;
+    }
+    return false;
+}
+
+bool checkMaxHeap(int arr[], int n){
+    /* Don't write main().
+     * Don't read input, it is passed as function argument.
+     * Taking input and printing output is handled automatically.
+     */
+	return checkhelper(arr,n,0);
+}
