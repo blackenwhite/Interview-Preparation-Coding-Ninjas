@@ -1,0 +1,121 @@
+Given an undirected graph G(V,E), find and print all the connected components of the given graph G.
+V is the number of vertices present in graph G and vertices are numbered from 0 to V-1.
+E is the number of edges present in graph G.
+You need to take input in main and create a function which should return all the connected components. And then print them in the main, not inside function.
+Print different components in new line. And each component should be printed in increasing order (separated by space). Order of different components doesn't matter.
+Input Format :
+Line 1: Two Integers V and E (separated by space)
+Next 'E' lines, each have two space-separated integers, 'a' and 'b', denoting that there exists an edge between Vertex 'a' and Vertex 'b'.
+Output Format :
+Different components in new line
+Constraints :
+2 <= V <= 1000
+1 <= E <= 1000
+Sample Input 1:
+4 2
+0 1
+2 3
+Sample Output 1:
+0 1 
+2 3 
+Sample Input 2:
+4 3
+0 1
+1 3 
+0 3
+Sample Output 2:
+0 1 3 
+2
+----------------------------Solution-------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> components;
+vector<int> ind;
+
+void DFS(int **graph,int n,int sv,int *visited)
+{
+    ind.push_back(sv);
+
+    visited[sv] = true;
+    
+    for(int i = 0; i < n; i++)
+    {
+        if(i == sv)
+        {
+            continue;
+        }
+        if(graph[sv][i] == 1)
+        {
+            if(visited[i])
+            {
+                continue;
+            }
+            else
+            {
+                DFS(graph,n,i,visited);
+            }
+        }
+    }
+}
+
+void dfs_disconnected(int **graph,int n)
+{
+    int *visited = new int[n];
+    memset(visited,0,sizeof(visited));
+
+    for(int i = 0; i < n; i++)
+    {
+        ind.clear();
+        if(!visited[i])
+        {
+            DFS(graph,n,i,visited);
+
+            sort(ind.begin(),ind.end());
+            
+            components.push_back(ind);
+        }
+    }
+    delete [] visited;
+
+}
+
+int main()
+{
+    int n,e;
+    cin >> n >> e;
+    int **graph = new int*[n];
+    for(int i = 0;i < n; i++)
+    {
+        graph[i] = new int[n];
+        for(int j = 0; j < n; j++)
+            graph[i][j] = 0;
+    }
+
+    for(int i = 0; i < e; i++)
+    {
+        int f,s;
+        cin >> f >> s;
+        graph[f][s] = 1;
+        graph[s][f] = 1;
+    }
+
+    dfs_disconnected(graph,n);
+
+    for(int i = 0; i < components.size(); i++)
+    {
+        for(int j = 0; j < components[i].size(); j++)
+        {
+            cout<<components[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
+    for(int i = 0;i < n; i++)
+    {
+        delete [] graph[i];
+    }
+    delete [] graph;
+
+    return 0;
+}   
