@@ -1,0 +1,81 @@
+Given a string S consisting of lowercase Latin Letters. Find the first non repeating character in S.
+
+Input:
+The first line contains T denoting the number of testcases. Then follows description of testcases.
+Each case begins with a single integer N denoting the length of string. The next line contains the string S.
+
+Output:
+For each testcase, print the first non repeating character present in string. Print -1 if there is no non repeating character.
+
+Constraints:
+1 <= T <= 900
+1 <= N <= 104
+
+Example:
+Input :
+3
+5  
+hello
+12
+zxvczbtxyzvy
+6
+xxyyzz
+
+Output :
+h
+c
+-1
+----------------------Solution---------------/nabajyoti majumdar
+#include <bits/stdc++.h>
+using namespace std;
+
+class pii{
+public:
+  int occ=-1;
+  int count=0;
+
+};
+
+void solve(){
+  int n;
+  cin>>n;
+  char s[n+1];
+  cin>>s;
+  //cout<<s<<endl;
+  pii* arr=new pii[26]();
+  /*for(int i=0;i<26;i++){
+    cout<<arr[i].occ<<" "<<arr[i].count<<endl;
+  }*/
+  for(int i=0;i<n;i++){
+    int temp=s[i]-'a';
+    if(arr[temp].occ==-1){
+      arr[temp].occ=i;
+    }
+    arr[temp].count++;
+  }
+
+  /*for(int i=0;i<26;i++)
+    cout<<arr[i].occ<<" "<<arr[i].count<<endl;*/
+
+  int min_occ=INT_MAX;
+  //int ans=990;
+  for(int i=0;i<26;i++){
+    if(arr[i].count==1){
+      if(min_occ>arr[i].occ){
+        min_occ=arr[i].occ;
+      }
+      }
+  }
+  //cout<<(ans)<<endl;
+  if(min_occ<INT_MAX)cout<<s[min_occ]<<endl;
+  else cout<<-1<<endl;
+
+}
+
+int main(){
+  int t;
+  cin>>t;
+  while(t--){
+    solve();
+  }
+}
