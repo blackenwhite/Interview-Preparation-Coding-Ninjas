@@ -1,0 +1,294 @@
+// website:https://medium.com/the-dev-caf%C3%A9/how-i-passed-the-amazon-interview-9fd1825b21a6
+
+The Dev Café
+Sign in
+You have 2 free stories left this month. Sign up and get an extra one for free.
+How I passed the Amazon Interview
+And how you can too.
+Giuseppe Picciano
+Giuseppe Picciano
+Jun 23 · 9 min read
+Photo by Author
+The day of the interview
+
+On a Wednesday morning in early 2020, I paced frantically around my flat and recited answers to popular interview questions.
+
+Only three programming interviews stood between me and my dream job.
+
+Sitting down at my desk, I took a moment to centre myself and focus on my breath. I had worked hard to get the interview and even harder to prepare for it.
+
+Failure was not an option.
+
+At this time, the severity of the COVID-19 outbreak was just coming to light in the UK. And as a result, my onsite interview was conducted virtually.
+
+When the time came for the first interview, I battled the urge to hide my webcam. As a last-minute decision, I swapped my shirt for a more comfortable black T-shirt.
+
+Once I sat down again, it was time to begin.
+
+After a few pleasant exchanges with my interviewer, we were straight into the programming challenge. I was shaking with nerves.
+
+As the problem was being explained to me I suddenly realised that I had seen some variation of it before. A stroke of luck had guaranteed my success in the first stage.
+
+The second interview was much more difficult. The interviewer had bombarded me with behavioural questions leaving only 20 minutes for the programming challenge.
+
+I tried my best to understand the problem and eventually narrowed in on an optimal solution. My explanations were not as clean as they could have been. Regardless, I was happy to be finished with that interview.
+
+Feeling mentally drained and slightly hungry I began the third and final interview. Just like the first, I knew exactly how to tackle the problem.
+
+I thoroughly explained my approach and proceeded to write the optimal solution.
+
+    “Thank you for your time, we’ll be in touch soon.”
+
+What is this article?
+
+In this article, I’d like to share with you exactly how I prepared for my onsite interview.
+
+I’ll talk about the resources I relied on the most, and how to effectively use them.
+
+The article will have two main focuses:
+
+    The programming interview.
+    The behavioural interview.
+
+Disclaimer
+
+The content of this article does not reveal any specific information relating to the interview process at Amazon.
+
+It is common knowledge that the majority of tech companies use programming interviews to screen for a candidate’s ability.
+
+My aim is to be as general as possible with my advice such that it may be applied to any company.
+
+I’m not affiliated with any of the resources mentioned. If I give them a lot of praise, it’s because I believe they are worthy of it.
+Who am I? And why was I successful?
+
+At the time of applying, I was a Master’s computer science student at the University of Sheffield. I specialised in machine learning and software engineering.
+
+I had spent the previous summer interning with a small web studio where I worked as a backend web engineer to build an internal tool. Some of the technologies included Nodejs, GraphQL, and AWS.
+
+I’m not the type of person who excels at things immediately. I believe most people aren’t.
+
+It was hard work and persistence that got me from solving my first coding problem to solving my 50th.
+
+    “Nothing in this world can take the place of persistence. Talent won’t. Nothing’s more common than unsuccessful men with talent.” — Calvin Coolidge
+
+    If there’s one thing that I’ve learned throughout my university experience, it’s that if you spend enough time trying to understand something you will crack it eventually.
+
+While this may seem trivial, if internalised, it can give you a powerful belief in your own ability. A belief which can carry you through the days when you want to give up.
+
+A belief which does not deplete as motivation does.
+
+If you’re about to embark on a long-term project, whether it’s interview preparation or something else entirely, try your very best to be confident in yourself.
+
+Someone who consistently doubts their ability is doing twice the work.
+What is a programming interview?
+
+As an attempt to measure programming, problem-solving, and communication skills, tech companies set interviewees with a number of programming interviews.
+
+Generally speaking, you have one challenge to solve per interview with a portion of time dedicated to behavioural questions.
+
+It is the interviewee’s job to interpret the question, apply constraints and design an algorithm which solves the problem.
+
+Once an algorithm has been described and justified the interviewer will ask for a written solution in a programming language of choice.
+
+Programming interviews focus on the fundamentals of computer science — a class most graduates wish they had paid more attention to during university.
+
+Specifically, interviewees are expected to have a thorough grasp of the following:
+
+    Common data-structures — how to implement them, and their advantages/disadvantages.
+    Big O Notation — a mathematical notation used to describe the worst-case scenario of an algorithm in terms of it’s run time and space complexity.
+    Search algorithms — how to use, implement, and compare them.
+
+How I prepared for the programming interview
+Many small efforts will compound over a long period
+
+After every other company had rejected my CV, I was convinced that I would be graduating without a job lined up.
+
+Still, I was clear on my goal — to get into Facebook, Apple, Amazon or Google. Whatever it took.
+
+I set myself a challenge — solve one coding problem per day until I get an interview. By the time the hiring period came around in the following year, I would be totally prepared.
+
+This wasn’t enough, I needed a way to hold myself accountable. I decided to create a YouTube channel. I would try to upload one video per day where I solved a popular coding problem and thoroughly explained the method.
+
+Not only was I benefiting from the experience of solving many different types of questions, but I was also improving my ability to communicate and justify a solution.
+
+    “Compound interest is the eighth wonder of the world. He who understands it, earns it … he who doesn’t … pays it.” — Albert Einstein
+
+Where to find coding problems to practise with
+
+1 — Leetcode
+
+If you’ve ever had to prepare for a programming interview, you’ve most likely heard of leetcode.com.
+
+At the time of writing this article, they have a bank of 1485 problems — all of which are categorised by topic and difficulty.
+
+Exclusively for premium users, they provide curated lists of problems that are specific to a given company.
+
+    If you’re serious about your revision, in my opinion, Leetcode premium is the best investment you can make.
+
+I personally used leetcode for 90% of my preparation.
+
+2 — AlgoExpert
+
+AlgoExpert currently has 100 unique questions to practise with, all categorised by difficulty and topic.
+
+Founder Clément has created an in-depth video explanation for each of the problems. He tackles every problem by first implementing a simple solution and then working up to a more complex one.
+
+His explanations are some of the best on the internet.
+
+I personally used AlgoExpert to tackle tricky questions that I could not solve on Leetcode.
+
+3— Others
+
+Here’s a list of other websites to practise with, however, I did not use them myself.
+
+    Hackerrank
+    GeeksforGeeks
+    CodeSignal
+
+How to use Leetcode effectively
+
+Starting out on Leetcode can be very demoralising. All of the so-called ‘easy’ questions may as well be written in a foreign language.
+
+Unfortunately, there’s no quick way to get through the first 10–20 questions but there are a few tricks I picked up to maximise your time spent on the site.
+
+1 — Don’t try to advance too quickly
+
+Stick to the easy questions — for at least your first 30–40 problems. The easy questions are not easy, so don’t feel bad when you get stuck.
+
+If you try to advance too quickly you’ll likely become overwhelmed and give up.
+
+2 — Look for the secret to every problem
+
+When you solve a question on leetcode, try to ask yourself: what is the one piece of knowledge that would have made this question easier?
+
+For example, it may be knowing that you need to use a certain data-structure or a particular search algorithm.
+
+You will not remember how to implement every line of code of every problem that you solve. It’s just not going to happen.
+
+But if you try to pick out a core principle in every question then eventually you’ll start to see similarities between them.
+
+When you come across a new question, ask yourself: in what way is this similar to other questions I’ve solved?
+
+3 — Use a non-verbose programming language
+
+Using a programming language such as python allows you to focus on solving the problem rather than battling with the tedious syntax of the language.
+
+Most interviewers will let you choose a language so it’s really important that you practise with one that you like and that allows you to get the job done quickly.
+
+4 — Always analyse the complexity of your algorithm
+
+During the interview, you will be asked to analyse the time and space complexity of your code. The more practise you have with this the easier it becomes.
+The final stretch
+
+I created a YouTube video every day for a month and then out of blue, I received an onsite interview invitation. I had applied so long ago that I thought they had rejected me.
+
+With only 5 days to prepare I was sent into a frenzy of excitement and nervousness. There was no way I was going to continue with only one question per day.
+
+I needed to step it up a gear.
+
+All of my university assignments were put on hold because for the next 5 days I was sat in the library from 10 am — 7 pm grinding leetcode.
+
+Was it boring? Yes. Was it draining? Yes.
+
+I didn’t care though because I was clear on my goal and I was confident in my ability.
+What is a behavioural interview?
+
+Behavioural interview questions are used to assess a candidate’s ‘soft skills’. They are the most common type of question asked across all industries.
+
+Questions such as ‘Describe a difficult decision you have recently made?’ or ‘Describe your last work-place conflict’ are designed to put you on the spot.
+
+They give the employer an idea of how you think and how you handle different situations that can occur in the workplace.
+
+Being the right ‘fit’ in terms of personality is just as important as your programming ability so do not skimp on the behavioural prep.
+How I prepared for the behavioural interview
+Look up popular interview questions specific to the company
+
+There are many ‘top-X interview question’ lists available online. I scrolled through a bunch of websites and compiled a big list. In my case, the company is really well known and so it was easy to find company-specific questions.
+
+After removing duplicates, I was left with 23 unique questions. The next task was to sit and construct thoughtful answers, making sure to use the STAR technique for each of them.
+
+If you’re unfamiliar, STAR stands for the following:
+
+Situation: Give context to your story. Where did it happen? What project were you working on? Be specific.
+
+Task: What was the task at hand? What needed to be solved? Focus on your responsibility in the situation.
+
+Action: Describe how you handled the situation. This should be the meat and potatoes of your answer so make sure to focus on this section. Always prefer “I” over “We”.
+
+Result: Describe the outcome. Was it a success? What did you learn? How could you improve?
+
+During the interview, you should aim to use the STAR technique to answer as many questions as possible. This will help you portray a thoughtful and intelligent version of yourself.
+
+I memorised all of my 23 answers and practised saying them out loud over and over again. This was without a doubt the most effective preparation for the behavioural section.
+Practise with mock interviews
+
+Having a memorised list of well-structured answers is great however, it does not prepare you for the pressure of the interview setting. Interviewing is a skill — and like any skill, it needs to be practised.
+
+The best way to do this is with mock interviews.
+
+I used a website called Pramp. It lets you schedule mock interviews with other people who are also preparing. The session is split in two such that you get to experience being the interviewer as well as the interviewee.
+
+It’s not limited to behavioural interviews either — you can also practise algorithm, data science, and front-end interviews. I can’t recommend it enough.
+
+I personally completed 5 interviews on Pramp and at this point I felt comfortable with my behavioural technique.
+Final words
+
+Preparing for interviews is a marathon, not a sprint. Having a long-term mindset and being consistent will pay off in the long run. Be confident in your ability and be clear on your goal.
+
+Grinding leetcode is boring, so find a way to keep it interesting. Creating a YouTube channel helped me to keep the process exciting and to hold myself accountable.
+
+I am now in love with content creation. I hope to continue to use the video and editing skills I learned to create future videos.
+
+Do not undervalue your interpersonal skills. Being a ninja programmer is not enough to get yourself hired in a big tech company, so make sure to practise behavioural questions.
+
+Thank you for reading. 🙏
+The Dev Café
+Code. Learn. Share.
+Sign up for Top Stories from The Dev Café
+
+A newsletter that delivers The Dev Café's most popular stories to your inbox once a fortnight.
+
+Create a free Medium account to get Top Stories in your inbox.
+Thanks to Miya Aziz. 
+
+    Programming
+    Software Development
+    Software Engineering
+    Interview
+    Amazon
+
+Giuseppe Picciano
+
+Written by
+Giuseppe Picciano
+I share code and explain technical concepts. Visit me here → https://giuseppe.tech/
+The Dev Café
+The Dev Café
+Code. Learn. Share.
+See responses (1)
+More From Medium
+Make Your Python Code Dramatically Faster With Cython
+Halil Yıldırım in Better Programming
+Create GitHub Repos Remotely
+Christopher Shaffer in Better Programming
+Understanding Dijkstra's Shortest Path Algorithm in Swift
+Wayne Bishop in Swift Algorithms & Data Structures
+Which CMS you use in Rails? Try ComfortableMexicanSofa
+Billy Cheng in The Startup
+Garbage Collection — Introduction (Part 1)
+Aanya Gupta in Codealley
+A Simple Introduction to Python Virtual Environments
+Jonathan Hsu in Code 85
+Break down Kafka by Nine Graphs
+Patrick Gopher in DataSeries
+Dynamically Import CSS
+David Dal Busco in The Startup
+Discover Medium
+Welcome to a place where words matter. On Medium, smart voices and original ideas take center stage - with no ads in sight. Watch
+Make Medium yours
+Follow all the topics you care about, and we’ll deliver the best stories for you to your homepage and inbox. Explore
+Become a member
+Get unlimited access to the best stories on Medium — and support writers while you’re at it. Just $5/month. Upgrade
+About
+Help
+Legal
