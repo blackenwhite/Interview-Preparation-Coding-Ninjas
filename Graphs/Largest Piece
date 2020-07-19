@@ -1,0 +1,58 @@
+Its Gary's birthday today and he has ordered his favourite square cake consisting of '0's and '1's . But Gary wants the biggest piece of '1's and no '0's . A piece of cake is defined as a part which consist of only '1's, and all '1's share an edge with eachother on the cake. Given the size of cake N and the cake , can you find the size of the biggest piece of '1's for Gary ?
+Constraints :
+1<=N<=50
+Input Format :
+
+Line 1 : An integer N denoting the size of cake 
+Next N lines : N characters denoting the cake
+
+Output Format :
+
+Size of the biggest piece of '1's and no '0's
+
+Sample Input :
+
+2
+11
+01
+
+Sample Output :
+
+3
+
+-------------------------Solution-------------//nabajyoti majumdar
+#include <bits/stdc++.h>
+using namespace std;
+
+int dx[]={0,0,1,-1};
+int dy[]={1,-1,0,0};
+
+int maxi=INT_MIN;
+
+void dfs(char cake[NMAX][NMAX],int i,int j,int& count,int n){
+    if(i<0||j<0 ||i>=n||j>=n) return;
+    if(cake[i][j]!='1')return;
+    //cout<<"running dfs on "<<i<< " "<<j<<endl;
+    cake[i][j]='2';
+    count++;
+    for(int k=0;k<4;k++){
+        dfs(cake,i+dx[k],j+dy[k],count,n);
+    }
+    
+    
+}
+
+int solve(int n,char cake[NMAX][NMAX])
+{
+	for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(cake[i][j]=='1'){
+                int count=0;
+                dfs(cake,i,j,count,n);
+                maxi=max(count,maxi);
+            }
+        }
+    }
+    return maxi;
+    
+}
