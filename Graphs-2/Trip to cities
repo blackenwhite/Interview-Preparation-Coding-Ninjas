@@ -76,7 +76,7 @@ void dijk(vector<pair<int,int> > adj[],int n,int C,int *dist){
     }
 }
 
-
+  
 int main() {
 	int n, m, c, k;
 	cin >> n >> m >> c >> k;
