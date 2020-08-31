@@ -1,0 +1,80 @@
+You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
+
+Each 0 marks an empty land which you can pass by freely. Each 1 marks a building which you cannot pass through. Each 2 marks an obstacle which you cannot pass through. For example, given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2):
+
+1 - 0 - 2 - 0 - 1
+|   |   |   |   |
+0 - 0 - 0 - 0 - 0
+|   |   |   |   |
+0 - 0 - 1 - 0 - 0
+
+The point (1,2) is an ideal empty land to build a house, as the total travel distance of 3+3+1=7 is minimal. So return 7.
+
+Note:
+
+There will be at least one building. If it is not possible to build such house according to the above rules, return -1.
+
+--------------------------Solution-------------------------//nabajyoti majumdar
+#include <bits/stdc++.h>
+using namespace std;
+#define pii pair<int,int> 
+int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+
+int shortestDistance (vector<vector<int>>&grid){
+    int ret=INT_MAX;
+    int n=grid.size();
+    int m=grid[0].size();
+    int numOfOnes=0;
+    vector<vector<int>>dist(n,vector<int>(m));
+    vector<vector<int>>reach(n,vector<int>(m,0));
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(grid[i][j]==1){
+                numOfOnes++;
+                queue<pii>q;
+                q.push({i,j});
+                set<pii>visited;
+                for(int lvl=1;!q.empty();lvl++){
+                    int sz=q.size();
+                    while(sz--){
+                        pii curr=q.front();
+                        q.pop();
+                        int x=curr.first,y=curr.second;
+                        for(int k=0;k<4;k++){
+                            int nx=x+dir[k][0];
+                            int ny=y+dir[k][1];
+                            if(nx<0 ||ny<0 ||nx>=n||ny>=m ||visited.count({nx,ny})|| grid[nx][ny]!=0) continue;
+                            visited.insert({nx,ny});
+                            dist[nx][ny]+=lvl;
+                            reach[nx][ny]++;
+                            q.push({nx,ny});
+                        }
+                    }
+                }
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(grid[i][j]==0 && reach[i][j]==numOfOnes){
+                ret=min(ret,dist[i][j]);
+            }
+        }
+    }
+    return ret==INT_MAX?-1:ret;
+}
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>>grid(n,vector<int>(m));
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>grid[i][j];
+        }
+    }
+    cout<<shortestDistance(grid)<<endl;
+    return 0;
+}
