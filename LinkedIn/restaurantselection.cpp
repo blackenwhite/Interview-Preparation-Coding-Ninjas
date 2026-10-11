@@ -36,7 +36,7 @@ string electRestaurant(const vector<string>& restaurants, const vector<vector<st
         set<pair<int, string>> st;
         map<string,int> freq;
         for(int i=0;i<n;i++) {
-            queue<string> q = vectorQ[i];
+            queue<string>& q = vectorQ[i];
             while(!q.empty() && excluded.count(q.front())) {
                 q.pop();
             }
